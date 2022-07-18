@@ -7,13 +7,7 @@ import cloudinary from "cloudinary";
      path:"./config/config.env",
  });
 
-mongoose.connect(
-    process.env.MONGO_URL,
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-    () => {
-      console.log('Connected to MongoDB');
-    }
-  );
+
 
 
 cloudinary.config({
