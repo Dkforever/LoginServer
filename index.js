@@ -3,9 +3,18 @@ import {config} from "dotenv";
 import {connectDatabase} from "./config/database.js";
 import cloudinary from "cloudinary";
 
-config({
-    path:"./config/config.env",
-});
+ config({
+     path:"./config/config.env",
+ });
+
+mongoose.connect(
+    process.env.MONGO_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+    () => {
+      console.log('Connected to MongoDB');
+    }
+  );
+
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
